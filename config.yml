@@ -1,0 +1,103 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME   # ← ЗАМЕНИТЕ: например dorokhina/zhizn-na-bis
+  branch: main
+  base_url: https://sveltia-cms-auth.pages.dev  # Бесплатный OAuth proxy для GitHub Pages
+
+# Папка для загруженных файлов (фото, сертификаты)
+media_folder: assets/images
+public_folder: assets/images
+
+# Локализация интерфейса
+locale: ru
+
+# КОЛЛЕКЦИИ — что можно редактировать через CMS
+collections:
+  - name: settings
+    label: "⚙️ Настройки сайта"
+    files:
+      - file: _data/settings.json
+        label: "Основные данные"
+        name: main
+        fields:
+          - { label: "Имя автора", name: author_name, widget: string, default: "Елена Дорохина" }
+          - { label: "Должность / роли", name: author_roles, widget: string, default: "Психолог | Автор | Наставник" }
+          - { label: "Подзаголовок книги", name: book_subtitle, widget: string, default: "Ты уже всё знаешь. Ключ — в правильных вопросах." }
+          - { label: "Цена книги", name: book_price, widget: string, default: "5 500 ₽" }
+          - { label: "Цена клуба", name: club_price, widget: string, default: "1 500 ₽" }
+          - { label: "Telegram (покупка книги)", name: tg_buy, widget: string }
+          - { label: "Telegram (канал/клуб)", name: tg_channel, widget: string }
+          - { label: "Instagram", name: instagram, widget: string }
+          - { label: "YouTube", name: youtube, widget: string }
+          - { label: "LinkedIn", name: linkedin, widget: string }
+          - { label: "WhatsApp (номер)", name: whatsapp, widget: string }
+          - { label: "Email", name: email, widget: string }
+
+  - name: content
+    label: "📝 Тексты сайта"
+    files:
+      - file: _data/about.json
+        label: "Обо мне"
+        name: about
+        fields:
+          - { label: "Заголовок секции", name: title, widget: string }
+          - { label: "Абзац 1", name: p1, widget: text }
+          - { label: "Абзац 2", name: p2, widget: text }
+          - { label: "Абзац 3", name: p3, widget: text }
+          - label: "Теги/регалии"
+            name: tags
+            widget: list
+            field: { label: "Тег", name: tag, widget: string }
+
+      - file: _data/book.json
+        label: "О книге"
+        name: book
+        fields:
+          - { label: "Цитата/подзаголовок", name: quote, widget: text }
+          - { label: "Описание абзац 1", name: p1, widget: text }
+          - { label: "Описание абзац 2", name: p2, widget: text }
+
+      - file: _data/club.json
+        label: "Закрытый клуб"
+        name: club
+        fields:
+          - { label: "Описание клуба", name: description, widget: text }
+          - label: "Преимущества клуба"
+            name: perks
+            widget: list
+            fields:
+              - { label: "Иконка (emoji)", name: icon, widget: string }
+              - { label: "Название", name: title, widget: string }
+              - { label: "Описание", name: desc, widget: string }
+          - label: "Что включено (список)"
+            name: includes
+            widget: list
+            field: { label: "Пункт", name: item, widget: string }
+
+  - name: reviews
+    label: "⭐ Отзывы"
+    folder: _data/reviews
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Имя", name: author, widget: string }
+      - { label: "Город", name: city, widget: string }
+      - { label: "Отзыв", name: text, widget: text }
+      - { label: "Рейтинг (1-5)", name: rating, widget: number, default: 5, min: 1, max: 5 }
+
+  - name: photos
+    label: "📸 Фотографии"
+    files:
+      - file: _data/photos.json
+        label: "Управление фото"
+        name: photos
+        fields:
+          - { label: "Фото автора (главная)", name: elena_main, widget: image }
+          - { label: "Фото автора (доп.)", name: elena_about, widget: image }
+          - { label: "Обложка книги", name: book_cover, widget: image }
+          - { label: "3-я страница книги", name: book_page3, widget: image }
+          - { label: "Задняя обложка", name: book_back, widget: image }
+          - label: "Сертификаты"
+            name: certificates
+            widget: list
+            field: { label: "Сертификат", name: cert, widget: image }
