@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Жизнь на бис — Елена Дорохина</title>
-<meta name="description" content="Книга «Жизнь на бис» — психолог, автор и наставник Елена Дорохина. Ты уже всё знаешь. Ключ — в правильных вопросах."/>
-<meta property="og:title" content="Жизнь на бис — Елена Дорохина"/>
+<title>Жизнь на БИС — Елена Дорохина</title>
+<meta name="description" content="Книга «Жизнь на БИС» — психолог, гипнолог, системный коуч и автор Елена Дорохина. Ты уже всё знаешь. Ключ — в правильных вопросах."/>
+<meta property="og:title" content="Жизнь на БИС — Елена Дорохина"/>
 <meta property="og:description" content="Ты уже всё знаешь. Ключ — в правильных вопросах."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -511,11 +511,13 @@ footer::before{
 .hero-photo-frame{position:relative;width:clamp(220px,25vw,380px)}
 .hero-photo-img{
   width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;
-  background:linear-gradient(160deg,#071a32 0%,#12345f 52%,#071b36 100%);
-  display:flex;align-items:flex-end;justify-content:center;
+  background:transparent;
+  display:flex;align-items:stretch;justify-content:center;
   font-size:.8rem;color:rgba(225,241,255,.26);
-  text-align:center;padding-bottom:20px;font-family:var(--sans);
+  text-align:center;padding-bottom:0;font-family:var(--sans);
+  overflow:hidden;
 }
+.hero-photo-img img{width:100%;height:100%;object-fit:cover;object-position:top center}
 .hero-photo-frame::before{
   content:'';position:absolute;top:16px;left:-12px;
   width:2px;height:70%;
@@ -797,9 +799,18 @@ footer::before{
 }
 .book-price-row{display:flex;align-items:center;gap:24px;margin-top:36px;flex-wrap:wrap}
 .price-tag{
-  font-family:var(--serif);font-size:2.4rem;font-weight:900;
+  font-family:var(--sans);font-size:2.4rem;font-weight:800;
   background:linear-gradient(135deg,var(--blue-light),var(--cyan),var(--gold-bright));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:"lnum" 1,"tnum" 1;
+  display:inline-flex;align-items:baseline;gap:8px;
+}
+.price-currency{
+  font-size:.9rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
 }
 .book-imgs{display:flex;gap:16px;align-items:flex-end}
 .book-img-main{flex:1.5;position:relative}
@@ -869,6 +880,7 @@ footer::before{
 #club::before{
   content:'';position:absolute;top:50%;left:50%;width:800px;height:800px;
   background:
+    radial-gradient(ellipse,rgba(255,224,138,.10) 0%,transparent 56%),
     radial-gradient(ellipse,rgba(47,155,255,.14) 0%,transparent 62%),
     radial-gradient(ellipse,rgba(56,226,255,.08) 0%,transparent 70%);
   transform:translate(-50%,-50%);pointer-events:none;
@@ -876,11 +888,18 @@ footer::before{
 .club-inner{display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
 .club-label{
   display:inline-flex;align-items:center;gap:10px;padding:8px 18px;
-  background:rgba(47,155,255,.13);border:1px solid rgba(99,199,255,.26);
+  background:rgba(255,224,138,.08);border:1px solid rgba(255,224,138,.28);
   font-size:.68rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;
-  color:var(--blue-light);margin-bottom:20px;
+  color:var(--gold-bright);margin-bottom:20px;
 }
-.club-label svg{width:14px;height:14px;fill:var(--blue-light)}
+.club-label svg{width:14px;height:14px;fill:var(--gold-bright)}
+.club-intro{
+  font-size:1rem;
+  line-height:1.85;
+  color:var(--text-muted);
+  max-width:560px;
+  margin-bottom:14px;
+}
 .club-features{
   display:grid;grid-template-columns:1fr 1fr;
   gap:1px;background:rgba(99,199,255,.12);
@@ -902,20 +921,52 @@ footer::before{
 .cf-title{font-size:.85rem;font-weight:600;color:var(--cream);margin-bottom:4px;letter-spacing:.02em}
 .cf-desc{font-size:.78rem;color:var(--text-faint);line-height:1.55}
 .club-card{
-  background:rgba(10,33,66,.82);border:1px solid rgba(99,199,255,.22);
+  background:
+    linear-gradient(145deg,rgba(10,33,66,.88),rgba(6,20,38,.92)),
+    radial-gradient(ellipse at 50% 0%,rgba(255,224,138,.16),transparent 58%);
+  border:1px solid rgba(255,224,138,.25);
   padding:44px 40px;position:relative;
   backdrop-filter:blur(12px);
+  box-shadow:0 24px 80px rgba(0,0,0,.26),0 0 44px rgba(255,224,138,.08);
 }
 .club-card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,var(--blue),var(--blue-mid),var(--cyan),var(--gold-bright),var(--cyan),var(--blue-mid),var(--blue));
 }
 .club-price-block{margin-bottom:28px}
-.club-price{font-family:var(--serif);font-size:2.8rem;font-weight:900;color:var(--gold-bright);line-height:1}
+.club-membership{
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:rgba(255,224,138,.66);
+  margin-bottom:10px;
+}
+.club-price{
+  font-family:var(--sans);
+  font-size:2.8rem;
+  font-weight:800;
+  color:var(--gold-bright);
+  line-height:1;
+  font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:"lnum" 1,"tnum" 1;
+  display:inline-flex;
+  align-items:baseline;
+  gap:8px;
+}
 .club-period{font-size:.78rem;color:var(--text-faint);letter-spacing:.1em;margin-top:6px}
 .club-perks{list-style:none;margin-bottom:32px;display:flex;flex-direction:column;gap:12px}
 .club-perks li{display:flex;gap:12px;align-items:flex-start;font-size:.88rem;color:var(--text-muted)}
-.club-perks li::before{content:'✦';color:var(--blue-mid);flex-shrink:0;font-size:.7rem;margin-top:.15em}
+.club-perks li::before{content:'✦';color:var(--gold-bright);flex-shrink:0;font-size:.7rem;margin-top:.15em}
+.club-finale{
+  text-align:center;
+  margin-top:18px;
+  font-family:var(--light);
+  font-style:italic;
+  font-size:.98rem;
+  line-height:1.65;
+  color:rgba(225,241,255,.66);
+}
 
 /* =============================================
    REVIEWS
@@ -970,7 +1021,15 @@ footer::before{
 .social-link:hover svg{color:var(--blue-light)}
 .social-link span{font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(225,241,255,.44);transition:color .3s}
 .social-link:hover span{color:var(--blue-mid)}
-
+.social-link small{
+  max-width:170px;
+  font-size:.68rem;
+  line-height:1.35;
+  color:rgba(225,241,255,.34);
+  overflow-wrap:anywhere;
+  transition:color .3s;
+}
+.social-link:hover small{color:rgba(225,241,255,.62)}
 /* =============================================
    FOOTER
 ============================================= */
@@ -1076,6 +1135,11 @@ footer{
   .hamburger{display:flex}
   #hero{padding:90px 24px 50px}
   .hero-photo-frame{width:clamp(160px,55vw,240px)}
+  .hero-tag{
+    position:static;
+    margin-top:14px;
+    line-height:1.45;
+  }
   .book-ring-wrap{width:clamp(160px,55vw,240px)}
   .about-inner,.book-inner{gap:32px}
   .book-imgs{flex-direction:column;align-items:center;max-width:340px;gap:14px}
@@ -1127,10 +1191,10 @@ footer{
     <li><a href="#book">Книга</a></li>
     <li><a href="#certs">Сертификаты</a></li>
     <li><a href="#reviews">Отзывы</a></li>
-    <li><a href="#club">Контакты</a></li>
+    <li><a href="#socials">Контакты</a></li>
   </ul>
   <div class="nav-cta">
-    <a href="YOUR_TELEGRAM_CHANNEL" target="_blank" class="btn btn-outline">
+    <a href="https://t.me/Zarlen_usa" target="_blank" rel="noopener" class="btn btn-outline">
       Вступить в клуб
       <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
     </a>
@@ -1145,8 +1209,8 @@ footer{
   <a href="#book" class="mm-link">Книга</a>
   <a href="#certs" class="mm-link">Сертификаты</a>
   <a href="#reviews" class="mm-link">Отзывы</a>
-  <a href="#club" class="mm-link">Контакты</a>
-  <a href="YOUR_TELEGRAM_CHANNEL" target="_blank" class="btn btn-gold" style="margin-top:16px">Вступить в клуб</a>
+  <a href="#socials" class="mm-link">Контакты</a>
+  <a href="https://t.me/Zarlen_usa" target="_blank" rel="noopener" class="btn btn-gold" style="margin-top:16px">Вступить в клуб</a>
 </div>
 
 <!-- ==============================
@@ -1166,13 +1230,13 @@ footer{
   </div>
 
   <div class="hero-center">
-    <h1 class="hero-title">Жизнь<br>на бис</h1>
+    <h1 class="hero-title">Жизнь<br>на БИС</h1>
     <p class="hero-sub">
       Ты уже всё знаешь.<br>Ключ — в правильных вопросах.
     </p>
     <div class="hero-btns">
-      <a href="YOUR_TELEGRAM_BUY_URL" target="_blank" class="btn btn-gold">Купить книгу</a>
-      <a href="YOUR_TELEGRAM_CHANNEL" target="_blank" class="hero-club-link">
+      <a href="https://t.me/Zarlen_usa" target="_blank" rel="noopener" class="btn btn-gold">Купить книгу</a>
+      <a href="https://t.me/Zarlen_usa" target="_blank" rel="noopener" class="hero-club-link">
         Вступить в закрытый клуб
         <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
       </a>
@@ -1185,7 +1249,7 @@ footer{
       <div class="eclipse-ring eclipse-ring-2"></div>
       <div class="eclipse-ring eclipse-ring-1"></div>
       <div class="eclipse-ring-fire"></div>
-      <img class="book-img" src="images/1фото.jpg" alt="Жизнь на бис — Елена Дорохина"/>
+      <img class="book-img" src="images/1фото.jpg" alt="Жизнь на БИС — Елена Дорохина"/>
     </div>
   </div>
 
@@ -1231,29 +1295,37 @@ footer{
     <div class="about-inner">
       <div>
         <p class="sec-label sr">Обо мне</p>
-        <h2 class="sec-title sr d1">Я помогаю людям<br>найти <em>опору внутри</em> себя</h2>
+        <h2 class="sec-title sr d1">Возвращение<br>к <em>себе настоящему</em></h2>
         <div class="gold-bar sr d2"></div>
         <p class="about-body sr d2">
-          Я психолог с многолетним опытом, <strong>автор методик работы с подсознанием</strong>
-          и внутренними ограничениями. Помогаю людям находить опору внутри себя,
-          принимать важные решения и менять жизнь.
+          Я помогаю людям находить <strong>внутреннюю точку опоры</strong>
+          и возвращаться к себе настоящим.
         </p>
         <p class="about-body sr d3">
-          Моя миссия — задавать правильные вопросы, которые меняют реальность.
-          Именно это и лежит в основе книги «Жизнь на бис».
+          Психолог, гипнолог, системный коуч, автор книги
+          <strong>«Жизнь на БИС»</strong> и авторских методик работы с подсознанием.
         </p>
         <p class="about-body sr d3">
-          Образование и специализации — добавьте здесь реальную информацию
-          о вашем пути в профессии.
+          Моя работа — не давать готовые ответы, а помогать человеку
+          <strong>услышать свои собственные</strong>.
         </p>
-        <div class="about-tags sr d4">
+        <p class="about-body sr d4">
+          Через правильно заданные вопросы, работу с внутренними ограничениями
+          и подсознанием человек начинает видеть себя яснее, принимать важные
+          решения и менять свою жизнь изнутри.
+        </p>
+        <p class="about-body sr d4">
+          Моя миссия — создавать пространство, в котором человек может вспомнить,
+          кто он есть на самом деле.
+        </p>
+        <div class="about-tags sr d5">
           <span class="atag">Системный коуч</span>
           <span class="atag">Психолог</span>
+          <span class="atag">Гипнолог</span>
           <span class="atag">Автор книги</span>
-          <span class="atag">Наставник</span>
-          <span class="atag">Спикер</span>
+          <span class="atag">Подсознание</span>
         </div>
-        <a href="#book" class="btn btn-outline sr d5">Подробнее о книге</a>
+        <a href="#book" class="btn btn-outline sr d6">Подробнее о книге</a>
       </div>
       <div class="about-visual sr right">
         <div class="about-img">
@@ -1276,23 +1348,28 @@ footer{
     <div class="book-inner">
       <div>
         <p class="sec-label sr">О книге</p>
-        <h2 class="sec-title sr d1">«Жизнь на бис» —<br><em>проводник к себе</em></h2>
+        <h2 class="sec-title sr d1">«Жизнь на БИС» —<br><em>не просто книга</em></h2>
         <div class="gold-bar sr d2"></div>
         <blockquote class="book-quote sr d2">
-          Эта книга — проводник к самой важной встрече.<br>
-          С собой. Своей настоящей. Своей сильной.
+          Это пространство вопросов, которые помогают человеку
+          услышать себя настоящего.
         </blockquote>
         <p class="book-body sr d3">
-          Здесь нет готовых ответов. Но есть вопросы, которые открывают дверь
-          к новой жизни. К жизни, которую вы сами выбираете — не завтра, а прямо сейчас.
+          Здесь нет готовых шаблонов и мотивационных обещаний. Есть честный
+          внутренний диалог, глубокая работа с собой и инструменты, которые
+          помогают обрести внутреннюю опору, ясность и новое направление в жизни.
         </p>
         <p class="book-body sr d3">
-          За каждой страницей — годы практики, сотни реальных историй
-          и инструменты, которые работают даже тогда, когда кажется, что выхода нет.
+          Эта книга для тех, кто чувствует: пришло время перестать жить чужую
+          жизнь и начать слышать свою собственную.
+        </p>
+        <p class="book-body sr d4">
+          За каждой страницей — годы практики, реальные истории и методики,
+          рожденные через работу с людьми, подсознанием и внутренней трансформацией.
         </p>
         <div class="book-price-row sr d4">
-          <span class="price-tag">20 500 ₸</span>
-          <a href="YOUR_TELEGRAM_BUY_URL" target="_blank" class="btn btn-gold">
+          <span class="price-tag"><span class="price-number">30</span><span class="price-currency">USD</span></span>
+          <a href="https://t.me/Zarlen_usa" target="_blank" rel="noopener" class="btn btn-gold">
             <svg width="18" height="18" fill="#04111f" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
             Получить книгу
           </a>
@@ -1300,7 +1377,7 @@ footer{
       </div>
       <div class="book-imgs sr right">
         <div class="book-img-main">
-          <img src="images/1фото.jpg" alt="Жизнь на бис — обложка" onclick="openLbox(this.src,this.alt)" style="cursor:zoom-in"/>
+          <img src="images/1фото.jpg" alt="Жизнь на БИС — обложка" onclick="openLbox(this.src,this.alt)" style="cursor:zoom-in"/>
         </div>
         <div class="book-img-side">
           <div class="bsi" role="button" tabindex="0">
@@ -1351,13 +1428,21 @@ footer{
       <div>
         <div class="club-label sr">
           <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          Закрытый клуб в Telegram
+          Закрытое пространство
         </div>
-        <h2 class="sec-title sr d1">Эксклюзивное<br>сообщество для <em>роста</em></h2>
+        <h2 class="sec-title sr d1">«Психолог всегда рядом»<br><em>для тех, кто готов идти глубже</em></h2>
         <div class="gold-bar sr d2"></div>
-        <p style="font-size:1rem;line-height:1.8;color:var(--text-muted);max-width:500px" class="sr d2">
-          Закрытое пространство для тех, кто хочет идти глубже.
-          Живые разборы, практики, поддержка и ответы на вопросы лично от Елены.
+        <p class="club-intro sr d2">
+          Это больше, чем Telegram-канал. Это пространство внутренней
+          трансформации, поддержки и глубокого контакта с собой.
+        </p>
+        <p class="club-intro sr d2">
+          Здесь вы найдете живые разборы, практики, подкасты, работу
+          с подсознанием и ответы на важные внутренние вопросы.
+        </p>
+        <p class="club-intro sr d3">
+          Пространство создано для людей, которые хотят не просто читать
+          о переменах, а действительно менять свою жизнь изнутри.
         </p>
         <div class="club-features sr d3">
           <div class="cf">
@@ -1365,8 +1450,8 @@ footer{
               <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
             </div>
             <div>
-              <div class="cf-title">Эксклюзивные материалы</div>
-              <div class="cf-desc">Разборы и упражнения, которых нет в открытом доступе</div>
+              <div class="cf-title">Авторские практики</div>
+              <div class="cf-desc">Практические инструменты и глубокая внутренняя работа</div>
             </div>
           </div>
           <div class="cf">
@@ -1374,8 +1459,8 @@ footer{
               <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9H13a8.5 8.5 0 0 1 8 8v.5Z"/><path d="M8 10h8"/><path d="M8 14h5"/></svg>
             </div>
             <div>
-              <div class="cf-title">Поддержка и ответы</div>
-              <div class="cf-desc">Личные ответы Елены на вопросы участников</div>
+              <div class="cf-title">Поддержка и сопровождение</div>
+              <div class="cf-desc">Ответы на вопросы и живое взаимодействие с Еленой</div>
             </div>
           </div>
           <div class="cf">
@@ -1383,8 +1468,8 @@ footer{
               <svg viewBox="0 0 24 24"><path d="M12 22c4 0 7-2.8 7-6.8 0-2.6-1.3-4.8-3.4-6.7-.9 2.4-2.5 3.7-4.2 4.4.6-2.9-.4-5.4-3.1-7.9.1 3.1-1.6 5-2.7 6.6A6.4 6.4 0 0 0 5 15.2C5 19.2 8 22 12 22Z"/><path d="M12 18.5c1.5 0 2.6-1 2.6-2.4 0-1-.5-1.8-1.3-2.5-.4.8-1 1.3-1.7 1.6.2-1-.1-1.9-1-2.8 0 1.1-.6 1.8-1 2.4-.2.4-.3.8-.3 1.3 0 1.4 1.1 2.4 2.7 2.4Z"/></svg>
             </div>
             <div>
-              <div class="cf-title">Живое общение</div>
-              <div class="cf-desc">Общение с единомышленниками, взаимная поддержка</div>
+              <div class="cf-title">Живое пространство</div>
+              <div class="cf-desc">Общение, поддержка и люди, близкие вам по ценностям</div>
             </div>
           </div>
           <div class="cf">
@@ -1392,29 +1477,30 @@ footer{
               <svg viewBox="0 0 24 24"><path d="m12 3 2.5 5.4 5.9.7-4.4 4 1.2 5.8L12 16l-5.2 2.9L8 13.1l-4.4-4 5.9-.7L12 3Z"/></svg>
             </div>
             <div>
-              <div class="cf-title">Новые практики</div>
-              <div class="cf-desc">Новые инструменты и практики каждую неделю</div>
+              <div class="cf-title">Новые материалы каждую неделю</div>
+              <div class="cf-desc">Подкасты, разборы, упражнения и техники</div>
             </div>
           </div>
         </div>
       </div>
       <div class="club-card sr right">
         <div class="club-price-block">
-          <div class="club-price">70 500 ₸</div>
-          <div class="club-period">в месяц · отмена в любой момент</div>
+          <div class="club-membership">Membership</div>
+          <div class="club-price"><span class="price-number">80</span><span class="price-currency">USD</span></div>
+          <div class="club-period">доступ в закрытое пространство</div>
         </div>
         <ul class="club-perks">
-          <li>Закрытый Telegram-канал Елены</li>
-          <li>Еженедельные живые разборы</li>
-          <li>Практические материалы</li>
-          <li>Личная поддержка автора</li>
+          <li>Авторские практики и упражнения</li>
+          <li>Подкасты и живые разборы</li>
+          <li>Работа с подсознанием</li>
+          <li>Поддержка и сопровождение</li>
         </ul>
-        <a href="YOUR_TELEGRAM_CLUB_PAY_URL" target="_blank" class="btn btn-tg">
+        <a href="https://t.me/Zarlen_usa" target="_blank" rel="noopener" class="btn btn-tg">
           <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          Оплатить и вступить
+          Получить доступ
         </a>
-        <p style="text-align:center;margin-top:14px;font-size:.7rem;color:var(--text-faint)">
-          Безопасная оплата через Telegram
+        <p class="club-finale">
+          Иногда один правильный вопрос способен изменить направление всей жизни.
         </p>
       </div>
     </div>
@@ -1477,29 +1563,35 @@ footer{
   <div class="container">
     <h2 class="socials-title sr">Социальные сети</h2>
     <div class="socials-grid">
-      <a href="YOUR_INSTAGRAM_URL" target="_blank" rel="noopener" class="social-link sr d1">
+      <a href="https://www.instagram.com/d.n.elena_717" target="_blank" rel="noopener" class="social-link sr d1">
         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
         <span>Instagram</span>
+        <small>@d.n.elena_717</small>
       </a>
-      <a href="YOUR_YOUTUBE_URL" target="_blank" rel="noopener" class="social-link sr d2">
+      <span class="social-link social-link-static sr d2" role="link" aria-disabled="true">
         <svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
         <span>YouTube</span>
-      </a>
-      <a href="YOUR_TELEGRAM_URL" target="_blank" rel="noopener" class="social-link sr d3">
+        <small>ссылка скоро</small>
+      </span>
+      <a href="https://t.me/Zarlen_usa" target="_blank" rel="noopener" class="social-link sr d3">
         <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
         <span>Telegram</span>
+        <small>@Zarlen_usa</small>
       </a>
-      <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener" class="social-link sr d4">
+      <a href="https://www.linkedin.com/in/yelena-dorokhina-bb8779409/" target="_blank" rel="noopener" class="social-link sr d4">
         <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         <span>LinkedIn</span>
+        <small>Yelena Dorokhina</small>
       </a>
-      <a href="https://wa.me/YOUR_PHONE" target="_blank" rel="noopener" class="social-link sr d5">
+      <a href="https://wa.me/77472761898" target="_blank" rel="noopener" class="social-link sr d5">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
         <span>WhatsApp</span>
+        <small>+7 747 276 1898</small>
       </a>
-      <a href="mailto:YOUR_EMAIL" class="social-link sr d6">
+      <a href="mailto:d.n.elena717@gmail.com" class="social-link sr d6">
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         <span>Email</span>
+        <small>d.n.elena717@gmail.com</small>
       </a>
     </div>
   </div>
@@ -1511,7 +1603,7 @@ footer{
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-logo">Жизнь на бис</div>
+      <div class="footer-logo">Жизнь на БИС</div>
       <nav class="footer-nav">
         <a href="#about">Обо мне</a>
         <a href="#book">Книга</a>
