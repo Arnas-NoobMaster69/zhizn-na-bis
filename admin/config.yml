@@ -1,17 +1,18 @@
 backend:
   name: git-gateway
-  branch: main # Ветка, куда будут публиковаться изменения
 
-media_folder: "assets/uploads" # Папка для загрузки медиа (картинок)
-public_folder: "/assets/uploads"
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
-  - name: "content"
-    label: "Тексты страниц"
+  - name: "site"
+    label: "Сайт"
     files:
-      - file: "_data/texts.yml"
-        label: "Тексты сайта"
-        name: "texts"
+      - file: "content/site.json"
+        label: "Контент"
+        name: "content"
         fields:
-          - { label: "Заголовок", name: "title", widget: "string" }
-          - { label: "Описание сайта", name: "description", widget: "text" }
+          - { label: "Имя", name: "name", widget: "string" }
+          - { label: "О себе", name: "about", widget: "text" }
+          - { label: "Фото автора", name: "author", widget: "image" }
+          - { label: "Книга", name: "book", widget: "image" }
